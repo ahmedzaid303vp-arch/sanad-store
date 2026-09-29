@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<!-- صفحة المتجر: عرض المنتجات مع الفلاتر والترتيب -->
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fra.cloud.appwrite.io" crossorigin>
+  <title>Sanad Store | المتجر</title>
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg?v=2">
+  <link rel="stylesheet" href="assets/css/shop.css?v=20260940">
+  <link rel="stylesheet" href="assets/css/common.css?v=20260911">
+  <link rel="stylesheet" href="assets/css/theme.css?v=20260910">
+  <link rel="stylesheet" href="assets/css/accent.css?v=20260945">
+  <link rel="stylesheet" href="assets/css/site-header.css?v=5">
+</head>
+<body class="page-shop page-internal">
+
+  <!-- الهيدر المحقون بالجافاسكريبت -->
+  <div id="chrome-top"></div>
+
+  <main>
+    <div class="shop-wrap">
+    <!-- السايدبار: فلاتر التصنيف والتوفر والسعر زي الموقع المرجعي -->
+    <aside class="filters is-collapsed" id="filtersPanel" aria-labelledby="filterHeading">
+      <div class="fbox">
+        <h4 id="filterHeading" data-i18n="fCat">التصنيفات</h4>
+        <div id="catFilters"></div>
+      </div>
+      <div class="fbox">
+        <h4 data-i18n="fAvail">التوفر</h4>
+        <label><input type="radio" name="stock" value="all" checked><span data-i18n="all">الكل</span></label>
+        <label><input type="radio" name="stock" value="in"><span data-i18n="inStock">متوفر</span></label>
+        <label><input type="radio" name="stock" value="out"><span data-i18n="outStock">غير متوفر</span></label>
+      </div>
+      <div class="fbox">
+        <h4 data-i18n="fPrice">السعر</h4>
+        <input type="range" id="range" min="0" max="7000" step="50" value="7000">
+        <div class="pr-in">
+          <input type="number" id="minP" value="0" min="0">
+          <span>—</span>
+          <input type="number" id="maxP" value="7000" max="7000">
+        </div>
+        <button class="btn" id="applyBtn" data-i18n="apply">تطبيق</button>
+      </div>
+    </aside>
+
+    <!-- منطقة المنتجات: عداد + ترتيب + شبكة + عرض المزيد -->
+    <section class="shop-main">
+      <div class="toolbar">
+        <button class="filter-toggle" id="filterToggle" type="button" aria-controls="filtersPanel" aria-expanded="false">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M7 12h10M10 18h4"/></svg>
+          <span data-i18n="filter">فلترة</span>
+        </button>
+        <span id="showing"></span>
+        <select id="sort">
+          <option value="def" data-i18n="sDef">الترتيب: الافتراضي</option>
+          <option value="plow" data-i18n="sLow">السعر: من الأقل</option>
+          <option value="phigh" data-i18n="sHigh">السعر: من الأعلى</option>
+          <option value="name" data-i18n="sName">الاسم</option>
+        </select>
+      </div>
+      <div class="grid" id="grid"></div>
+      <button class="more" id="moreBtn" data-i18n="more">عرض المزيد</button>
+    </section>
+    </div>
+  </main>
+
+  <!-- الفوتر المحقون بالجافاسكريبت -->
+  <div id="chrome-bottom"></div>
+
+  <script src="assets/js/data-safety.js?v=20260927"></script>
+  <script src="assets/js/appwrite-client.js?v=20260929"></script>
+  <script src="assets/js/page-bootstrap.js?v=20260937" data-page="shop"></script>
+</body>
+</html>
